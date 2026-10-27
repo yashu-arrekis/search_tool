@@ -3,19 +3,19 @@ query = input("Enter your query: ").strip()
 def search_tool(query):
     if isinstance(query, str):
         pass
-    if query is None:
-        print("query cant be None")
-        return "query is unsupported"
+    elif query is None:
+        return "query cant be None"
+    else:
+        return "query isnt a string"
+    if not query.strip():
+        return "query can't be just spaces or empty."
+
     try:
-        chk = int(query)
-        return "query cant be an integer."
+        chk = float(query)
+        return "query cant be an integer or float or negative integer."
     except ValueError:
         pass
-    
-    if not query.strip():
-        print("query can't be just spaces or empty.")
-        return "query is unsupported"
-    else:
-        return query
+
+    return query
 
 print(search_tool(query))
